@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Convenience wrapper: installs dependencies and builds assets.
+# Run this after cloning the repository, or after pulling new changes.
+
+set -e
+
+echo 'Installing Composer dependencies...';
+bin/docker/composer install;
+
+echo 'Installing npm dependencies...';
+bin/docker/npm install;
+
+echo 'Building assets...';
+bin/docker/npm run build;
+
+echo 'Setup complete.';

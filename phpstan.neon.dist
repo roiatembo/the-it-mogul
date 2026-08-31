@@ -1,0 +1,29 @@
+includes:
+    - wp-content/vendor/szepeviktor/phpstan-wordpress/extension.neon
+parameters:
+  level: 9
+  bootstrapFiles:
+    - ./tests/phpstan-bootstrap.php
+  dynamicConstantNames:
+    - WP_PLUGIN_DIR
+  scanDirectories:
+    - wp
+    - wp-content
+  paths:
+    - wp-content/mu-plugins
+    - wp-content/themes
+  excludePaths:
+    analyseAndScan:
+      - wp-content/db.php
+      - wp-content/object-cache.php
+      - wp/wp-admin/includes/noop.php
+      - wp-content/vendor/10up/wp_mock
+    analyse:
+      - wp-content/mu-plugins/*/build/*.php
+      - wp-content/themes/*/build/*.php
+      - wp-content/mu-plugins/vendor
+  ignoreErrors:
+    - '#^Parameter \#[1-9] \$[a-zA-Z0-9_]+ of method [a-zA-Z0-9\\\:_]+\(\) expects [A-Za-z\\_]+, PHPUnit\\Framework\\MockObject\\MockObject given\.#' # Mocked objects
+    - '#no value type specified in iterable type array#' # Undefined Array Types (Method)
+    - identifier: missingType.generics
+  reportUnmatchedIgnoredErrors: false

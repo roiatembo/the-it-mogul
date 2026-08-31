@@ -1,0 +1,61 @@
+# =============================================================================
+# The IT Mogul — WordPress .gitignore
+# =============================================================================
+
+# --- Environment / secrets ---------------------------------------------------
+.env
+/.env.local
+/.env.local.php
+/.env.*.local
+auth.json
+
+# --- WordPress core (installed by Composer into /wp) --------------------------
+/wp
+
+# --- Composer vendor ----------------------------------------------------------
+/vendor/
+/wp-content/vendor
+
+# --- Node --------------------------------------------------------------------
+/node_modules/
+
+# --- WordPress content that is generated or not source ------------------------
+/wp-content/uploads
+/wp-content/languages/*
+!/wp-content/languages/*.pot
+!/wp-content/languages/*.po
+!/wp-content/languages/*.mo
+
+# Composer-installed plugins/themes (managed by Composer, not committed)
+/wp-content/plugins/*
+!/wp-content/plugins/index.php
+/wp-content/themes/*
+!/wp-content/themes/index.php
+
+# Keep the mu-plugins directory itself but not composer-installed mu-plugins
+!/wp-content/mu-plugins/index.php
+
+# --- Caches / logs / generated files -----------------------------------------
+debug.log
+/wp-content/object-cache.php
+/wp-content/advanced-cache.php
+/wp-content/cache
+/wp-content/db.php
+/wp-content/wonolog
+
+# --- Build artifacts ----------------------------------------------------------
+**/build/
+*.asset.php
+
+# --- Test artifacts -----------------------------------------------------------
+/tests/.env
+/tests/tmp/*
+!/tests/tmp/.gitkeep
+.phpunit.result.cache
+.phpunit.cache/
+playwright-report
+/coverage/*
+!/coverage/index.html
+
+# --- Tooling caches -----------------------------------------------------------
+.turbo/

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    bootstrap="tests/phpunit-bootstrap.php"
+    backupGlobals="false"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    beStrictAboutTestsThatDoNotTestAnything="true"
+    beStrictAboutOutputDuringTests="true"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+    <coverage includeUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">./wp-content/mu-plugins</directory>
+            <directory suffix=".php">./wp-content/themes</directory>
+        </include>
+        <exclude>
+        </exclude>
+    </coverage>
+    <testsuites>
+        <testsuite name="MU Plugin tests">
+            <directory suffix="Test.php">./wp-content/mu-plugins/**/tests</directory>
+            <exclude>./wp-content/mu-plugins/**/vendor</exclude>
+        </testsuite>
+        <testsuite name="Theme tests">
+            <directory suffix="Test.php">./wp-content/themes/**/tests/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

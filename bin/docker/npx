@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# If container is running, exec inside, else run a new container
+if [ "$(docker inspect -f '{{.State.Running}}' nodejs 2>/dev/null)" = "true" ]; then
+    docker compose exec nodejs npx "$@"
+else
+    docker compose run --rm nodejs npx "$@"
+fi

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+bin/docker/php /var/www/html/wp-content/vendor/bin/phpcbf "$@"
