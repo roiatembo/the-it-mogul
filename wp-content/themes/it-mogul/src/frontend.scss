@@ -1,0 +1,979 @@
+/**
+ * The IT Mogul — frontend styles.
+ *
+ * Loaded on the frontend only. Contains the design-system building blocks
+ * that future patterns and pages will reuse: sections, cards, button
+ * variants and the form foundation.
+ *
+ * Design tokens come from theme.json via CSS custom properties.
+ */
+
+/* ---------------------------------------------------------------------------
+ * Sections
+ * ------------------------------------------------------------------------- */
+
+/* A normal section uses generous vertical rhythm and the standard gutter. */
+.it-mogul-section {
+	padding-block: var(--wp--custom--spacing--section);
+	padding-inline: var(--wp--custom--layout--gutter);
+}
+
+/* A tighter section for sub-sections and dividers. */
+.it-mogul-section--tight {
+	padding-block: var(--wp--custom--spacing--section-tight);
+}
+
+/* Muted section — subtle neutral background, no border. */
+.it-mogul-section--muted {
+	background: var(--wp--preset--color--neutral-light);
+}
+
+/* Dark section — strong neutral background with light text. */
+.it-mogul-section--dark {
+	background: var(--wp--preset--color--neutral-dark);
+	color: var(--wp--preset--color--background);
+}
+
+.it-mogul-section--dark h1,
+.it-mogul-section--dark h2,
+.it-mogul-section--dark h3,
+.it-mogul-section--dark h4 {
+	color: var(--wp--preset--color--background);
+}
+
+/* Accent section — used sparingly for the primary conversion band. */
+.it-mogul-section--accent {
+	background: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--background);
+}
+
+.it-mogul-section--accent h1,
+.it-mogul-section--accent h2,
+.it-mogul-section--accent h3,
+.it-mogul-section--accent h4 {
+	color: var(--wp--preset--color--background);
+}
+
+/* Constrain inner content to the wide measure with consistent gutters. */
+.it-mogul-section__inner {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+}
+
+/* ---------------------------------------------------------------------------
+ * Cards
+ * ------------------------------------------------------------------------- */
+
+/* Editorial, understated card language. No floating UI, no heavy shadows. */
+.it-mogul-card {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--medium);
+	padding: var(--wp--preset--spacing--large);
+	background: var(--wp--preset--color--background);
+	border: 1px solid var(--wp--preset--color--neutral);
+	border-radius: var(--wp--custom--radius--medium);
+}
+
+.it-mogul-card--muted {
+	background: var(--wp--preset--color--neutral-light);
+	border-color: transparent;
+}
+
+.it-mogul-card__title {
+	margin: 0;
+}
+
+.it-mogul-card__body {
+	margin: 0;
+}
+
+.it-mogul-card__footer {
+	margin-top: auto;
+}
+
+/* ---------------------------------------------------------------------------
+ * Buttons
+ * ------------------------------------------------------------------------- */
+
+/* Primary buttons are styled via theme.json (elements.button). These
+ * variants extend that system for secondary and text/link actions. */
+
+/* Secondary / outline button. */
+.wp-block-button.is-style-outline .wp-block-button__link,
+.it-mogul-btn--secondary {
+	background: transparent;
+	color: var(--wp--preset--color--foreground);
+	border: 1px solid var(--wp--preset--color--neutral-dark);
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover,
+.it-mogul-btn--secondary:hover {
+	background: var(--wp--preset--color--neutral-light);
+	border-color: var(--wp--preset--color--foreground);
+	color: var(--wp--preset--color--foreground);
+}
+
+/* Text / link CTA — an underlined action that is not colour-dependent. */
+.it-mogul-btn--text {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.25rem 0;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid currentColor;
+	border-radius: 0;
+	color: var(--wp--preset--color--foreground);
+	font-weight: 600;
+	text-decoration: none;
+	transition:
+		color 160ms ease,
+		border-color 160ms ease;
+}
+
+.it-mogul-btn--text:hover {
+	color: var(--wp--preset--color--accent);
+	border-color: var(--wp--preset--color--accent);
+}
+
+/* ---------------------------------------------------------------------------
+ * Forms (visual foundation only — no contact form yet)
+ * ------------------------------------------------------------------------- */
+
+.it-mogul-form {
+	display: grid;
+	gap: var(--wp--preset--spacing--medium);
+}
+
+.it-mogul-form__field {
+	display: grid;
+	gap: var(--wp--preset--spacing--2xs);
+}
+
+.it-mogul-form__label {
+	font-size: var(--wp--preset--font-size--body);
+	font-weight: 600;
+	color: var(--wp--preset--color--foreground);
+}
+
+.it-mogul-form__input,
+.it-mogul-form__textarea,
+.it-mogul-form__select {
+	width: 100%;
+	padding: 0.75rem 0.875rem;
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--body);
+	line-height: 1.5;
+	color: var(--wp--preset--color--foreground);
+	background: var(--wp--preset--color--background);
+	border: 1px solid var(--wp--preset--color--neutral-dark);
+	border-radius: var(--wp--custom--radius--small);
+	transition:
+		border-color 160ms ease,
+		box-shadow 160ms ease;
+}
+
+.it-mogul-form__input::placeholder,
+.it-mogul-form__textarea::placeholder {
+	color: var(--wp--preset--color--neutral-dark);
+	opacity: 0.7;
+}
+
+.it-mogul-form__input:focus,
+.it-mogul-form__textarea:focus,
+.it-mogul-form__select:focus {
+	outline: 2px solid var(--wp--preset--color--accent);
+	outline-offset: 1px;
+	border-color: var(--wp--preset--color--accent);
+}
+
+.it-mogul-form__input[aria-invalid="true"],
+.it-mogul-form__textarea[aria-invalid="true"],
+.it-mogul-form__select[aria-invalid="true"] {
+	border-color: #b3261e;
+}
+
+.it-mogul-form__error {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--small);
+	color: #b3261e;
+}
+
+.it-mogul-form__input:disabled,
+.it-mogul-form__textarea:disabled,
+.it-mogul-form__select:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+/* Checkbox / radio — keep native but ensure adequate touch target. */
+.it-mogul-form__check {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--wp--preset--spacing--xs);
+}
+
+.it-mogul-form__check input {
+	width: 1.125rem;
+	height: 1.125rem;
+	margin-top: 0.2rem;
+	accent-color: var(--wp--preset--color--accent);
+}
+
+/* ---------------------------------------------------------------------------
+ * Responsive helpers
+ * ------------------------------------------------------------------------- */
+
+/* Editorial two-column layout that stacks on small screens. */
+.it-mogul-split {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--wp--preset--spacing--xl);
+}
+
+@media (min-width: 768px) {
+	.it-mogul-split {
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--wp--preset--spacing--2xl);
+	}
+}
+
+/* ---------------------------------------------------------------------------
+ * Main content landmark
+ * ------------------------------------------------------------------------- */
+
+/* The homepage main wrapper carries no extra spacing — each section manages
+ * its own rhythm. */
+.it-mogul-main {
+	display: block;
+}
+
+/* ---------------------------------------------------------------------------
+ * Header
+ * ------------------------------------------------------------------------- */
+
+.it-mogul-header {
+	padding-block: var(--wp--preset--spacing--medium);
+	padding-inline: var(--wp--custom--layout--gutter);
+	border-bottom: 1px solid var(--wp--preset--color--neutral);
+	background: var(--wp--preset--color--background);
+}
+
+.it-mogul-header__bar {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+	gap: var(--wp--preset--spacing--medium);
+}
+
+.it-mogul-header__brand {
+	font-size: var(--wp--preset--font-size--body-large);
+	font-weight: 700;
+	letter-spacing: -0.01em;
+}
+
+.it-mogul-header__brand a {
+	text-decoration: none;
+	color: var(--wp--preset--color--foreground);
+}
+
+.it-mogul-header__nav {
+	gap: var(--wp--preset--spacing--medium);
+}
+
+.it-mogul-header__cta {
+	margin: 0;
+}
+
+/* Hide the header CTA on small screens where the overlay menu takes over. */
+@media (max-width: 781px) {
+	.it-mogul-header__cta {
+		display: none;
+	}
+}
+
+/* ---------------------------------------------------------------------------
+ * Footer
+ * ------------------------------------------------------------------------- */
+
+.it-mogul-footer {
+	padding-block: var(--wp--custom--spacing--section-tight);
+	padding-inline: var(--wp--custom--layout--gutter);
+	background: var(--wp--preset--color--neutral-dark);
+	color: var(--wp--preset--color--background);
+}
+
+.it-mogul-footer h1,
+.it-mogul-footer h2,
+.it-mogul-footer h3,
+.it-mogul-footer h4 {
+	color: var(--wp--preset--color--background);
+}
+
+.it-mogul-footer a {
+	color: var(--wp--preset--color--background);
+}
+
+.it-mogul-footer__main {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+}
+
+.it-mogul-footer__cols {
+	gap: var(--wp--preset--spacing--xl);
+}
+
+.it-mogul-footer__brand .wp-block-site-title {
+	font-size: var(--wp--preset--font-size--body-large);
+}
+
+.it-mogul-footer__brand p {
+	color: var(--wp--preset--color--neutral);
+}
+
+.it-mogul-footer h3 {
+	margin-bottom: var(--wp--preset--spacing--small);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--wp--preset--color--neutral);
+}
+
+.it-mogul-footer__menu,
+.it-mogul-footer__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.it-mogul-footer__menu li,
+.it-mogul-footer__list li {
+	margin: 0;
+	padding: 0;
+}
+
+.it-mogul-footer__menu a,
+.it-mogul-footer__list a {
+	text-decoration: none;
+	color: var(--wp--preset--color--background);
+}
+
+.it-mogul-footer__menu a:hover,
+.it-mogul-footer__list a:hover {
+	color: var(--wp--preset--color--accent-light);
+	text-decoration: underline;
+	text-underline-offset: 0.18em;
+}
+
+.it-mogul-footer__contact p {
+	color: var(--wp--preset--color--neutral);
+}
+
+.it-mogul-footer__rule {
+	margin-block: var(--wp--preset--spacing--large);
+	border-color: var(--wp--preset--color--neutral-dark);
+	opacity: 0.4;
+}
+
+.it-mogul-footer__legal {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+	gap: var(--wp--preset--spacing--small);
+}
+
+.it-mogul-footer__copyright,
+.it-mogul-footer__links {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--small);
+	color: var(--wp--preset--color--neutral);
+}
+
+.it-mogul-footer__links a {
+	color: var(--wp--preset--color--neutral);
+}
+
+.it-mogul-footer__links a:hover {
+	color: var(--wp--preset--color--background);
+}
+
+/* ---------------------------------------------------------------------------
+ * Homepage — Hero
+ * ------------------------------------------------------------------------- */
+
+.it-mogul-hero {
+	padding-block: clamp(4rem, 10vw, 8rem) var(--wp--custom--spacing--section);
+	padding-inline: var(--wp--custom--layout--gutter);
+	background: var(--wp--preset--color--background);
+}
+
+.it-mogul-hero__inner {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+}
+
+.it-mogul-hero__title {
+	max-width: 16ch;
+	font-size: var(--wp--preset--font-size--display);
+	line-height: 1.02;
+	letter-spacing: -0.03em;
+	margin-block: var(--wp--preset--spacing--medium)
+		var(--wp--preset--spacing--large);
+}
+
+.it-mogul-hero__lede {
+	max-width: 46ch;
+	margin: 0 0 var(--wp--preset--spacing--xl);
+}
+
+.it-mogul-hero__actions {
+	margin: 0;
+}
+
+/* ---------------------------------------------------------------------------
+ * Homepage — Credibility strip
+ * ------------------------------------------------------------------------- */
+
+.it-mogul-credibility {
+	padding-block: var(--wp--custom--spacing--section-tight);
+	padding-inline: var(--wp--custom--layout--gutter);
+	border-block: 1px solid var(--wp--preset--color--neutral);
+	background: var(--wp--preset--color--neutral-light);
+}
+
+.it-mogul-credibility__inner {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+}
+
+.it-mogul-credibility__label {
+	margin: 0 0 var(--wp--preset--spacing--large);
+	font-size: var(--wp--preset--font-size--body-large);
+	font-weight: 600;
+	color: var(--wp--preset--color--foreground);
+}
+
+.it-mogul-credibility__items {
+	gap: var(--wp--preset--spacing--large);
+}
+
+.it-mogul-credibility__items .wp-block-column h3 {
+	margin-bottom: var(--wp--preset--spacing--xs);
+}
+
+.it-mogul-credibility__items .wp-block-column p {
+	margin: 0;
+	color: var(--wp--preset--color--neutral-dark);
+}
+
+/* ---------------------------------------------------------------------------
+ * Homepage — Problems
+ * ------------------------------------------------------------------------- */
+
+.it-mogul-problems__inner {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+}
+
+.it-mogul-problems__grid {
+	gap: var(--wp--preset--spacing--xl);
+}
+
+.it-mogul-problems__intro h2 {
+	margin-block: 0 var(--wp--preset--spacing--medium);
+}
+
+.it-mogul-problems__intro p {
+	color: var(--wp--preset--color--neutral-dark);
+}
+
+.it-mogul-problems__items {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.it-mogul-problems__items li {
+	position: relative;
+	padding: var(--wp--preset--spacing--small) 0
+		var(--wp--preset--spacing--small) var(--wp--preset--spacing--large);
+	border-bottom: 1px solid var(--wp--preset--color--neutral);
+	font-size: var(--wp--preset--font-size--body-large);
+}
+
+.it-mogul-problems__items li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 1.35em;
+	width: 0.5rem;
+	height: 0.5rem;
+	background: var(--wp--preset--color--accent);
+	border-radius: 50%;
+}
+
+.it-mogul-problems__items li:last-child {
+	border-bottom: 0;
+}
+
+/* ---------------------------------------------------------------------------
+ * Homepage — Solution
+ * ------------------------------------------------------------------------- */
+
+.it-mogul-solution__inner {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+}
+
+.it-mogul-solution__title {
+	max-width: 18ch;
+	margin-block: 0 var(--wp--preset--spacing--medium);
+}
+
+.it-mogul-solution__lede {
+	max-width: 60ch;
+	margin-bottom: var(--wp--preset--spacing--xl);
+}
+
+.it-mogul-solution__points {
+	gap: var(--wp--preset--spacing--large);
+	margin-bottom: var(--wp--preset--spacing--xl);
+}
+
+.it-mogul-solution__points .wp-block-column h3 {
+	margin-bottom: var(--wp--preset--spacing--xs);
+}
+
+.it-mogul-solution__points .wp-block-column p {
+	margin: 0;
+	color: var(--wp--preset--color--neutral-dark);
+}
+
+.it-mogul-solution__actions {
+	margin: 0;
+}
+
+/* ---------------------------------------------------------------------------
+ * Homepage — Services (editorial list)
+ * ------------------------------------------------------------------------- */
+
+.it-mogul-services__inner {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+}
+
+.it-mogul-services__head {
+	gap: var(--wp--preset--spacing--large);
+	margin-bottom: var(--wp--preset--spacing--xl);
+}
+
+.it-mogul-services__head h2 {
+	margin-block: 0;
+}
+
+.it-mogul-services__note {
+	max-width: 30ch;
+	margin: 0;
+	color: var(--wp--preset--color--neutral);
+}
+
+.it-mogul-services__list {
+	display: grid;
+	gap: 0;
+}
+
+.it-mogul-service {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	gap: var(--wp--preset--spacing--large);
+	padding-block: var(--wp--preset--spacing--large);
+	border-top: 1px solid var(--wp--preset--color--neutral-dark);
+	transition: background-color 160ms ease;
+}
+
+.it-mogul-service:last-child {
+	border-bottom: 1px solid var(--wp--preset--color--neutral-dark);
+}
+
+.it-mogul-service:hover {
+	background: var(--wp--preset--color--neutral-dark);
+}
+
+.it-mogul-service__index {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	color: var(--wp--preset--color--accent-light);
+}
+
+.it-mogul-service__body {
+	gap: var(--wp--preset--spacing--2xs);
+}
+
+.it-mogul-service__name {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--h2);
+	letter-spacing: -0.02em;
+}
+
+.it-mogul-service__desc {
+	margin: 0;
+	color: var(--wp--preset--color--neutral);
+}
+
+.it-mogul-service__link {
+	margin: 0;
+}
+
+.it-mogul-service__link a {
+	color: var(--wp--preset--color--background);
+	text-decoration: none;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.it-mogul-service__link a:hover {
+	color: var(--wp--preset--color--accent-light);
+	text-decoration: underline;
+	text-underline-offset: 0.18em;
+}
+
+/* ---------------------------------------------------------------------------
+ * Homepage — Selected work
+ * ------------------------------------------------------------------------- */
+
+.it-mogul-work__inner {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+}
+
+.it-mogul-work__head {
+	gap: var(--wp--preset--spacing--large);
+	margin-bottom: var(--wp--preset--spacing--xl);
+}
+
+.it-mogul-work__head h2 {
+	margin-block: 0;
+}
+
+.it-mogul-work__note {
+	margin: 0;
+	color: var(--wp--preset--color--neutral-dark);
+}
+
+.it-mogul-work__grid {
+	gap: var(--wp--preset--spacing--large);
+	margin-bottom: var(--wp--preset--spacing--xl);
+}
+
+.it-mogul-work__item {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--small);
+}
+
+.it-mogul-work__preview {
+	aspect-ratio: 16 / 10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--wp--preset--color--neutral);
+	border-radius: var(--wp--custom--radius--medium);
+	background: var(--wp--preset--color--neutral-light);
+	margin-bottom: var(--wp--preset--spacing--small);
+}
+
+.it-mogul-work__placeholder {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--small);
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--neutral-dark);
+}
+
+.it-mogul-work__item h3 {
+	margin: 0;
+}
+
+.it-mogul-work__item p {
+	margin: 0;
+	color: var(--wp--preset--color--neutral-dark);
+}
+
+.it-mogul-work__actions {
+	margin: 0;
+}
+
+/* ---------------------------------------------------------------------------
+ * Homepage — Why The IT Mogul
+ * ------------------------------------------------------------------------- */
+
+.it-mogul-why__inner {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+}
+
+.it-mogul-why__grid {
+	gap: var(--wp--preset--spacing--xl);
+}
+
+.it-mogul-why__intro h2 {
+	margin-block: 0 var(--wp--preset--spacing--medium);
+}
+
+.it-mogul-why__intro p {
+	color: var(--wp--preset--color--neutral-dark);
+}
+
+.it-mogul-why__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.it-mogul-why__list li {
+	padding: var(--wp--preset--spacing--small) 0;
+	border-bottom: 1px solid var(--wp--preset--color--neutral);
+	color: var(--wp--preset--color--neutral-dark);
+}
+
+.it-mogul-why__list li:last-child {
+	border-bottom: 0;
+}
+
+.it-mogul-why__list strong {
+	color: var(--wp--preset--color--foreground);
+}
+
+/* ---------------------------------------------------------------------------
+ * Homepage — Founder / About
+ * ------------------------------------------------------------------------- */
+
+.it-mogul-founder__inner {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+}
+
+.it-mogul-founder__grid {
+	gap: var(--wp--preset--spacing--xl);
+	align-items: center;
+}
+
+.it-mogul-founder__photo {
+	aspect-ratio: 4 / 5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--wp--preset--color--neutral);
+	border-radius: var(--wp--custom--radius--medium);
+	background: var(--wp--preset--color--neutral-light);
+}
+
+.it-mogul-founder__placeholder {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--small);
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--neutral-dark);
+}
+
+.it-mogul-founder__bio h2 {
+	margin-block: 0 var(--wp--preset--spacing--medium);
+}
+
+.it-mogul-founder__bio p {
+	color: var(--wp--preset--color--neutral-dark);
+}
+
+.it-mogul-founder__actions {
+	margin: var(--wp--preset--spacing--medium) 0 0;
+}
+
+/* ---------------------------------------------------------------------------
+ * Homepage — Process
+ * ------------------------------------------------------------------------- */
+
+.it-mogul-process__inner {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+}
+
+.it-mogul-process__inner > h2 {
+	margin-block: 0 var(--wp--preset--spacing--xl);
+}
+
+.it-mogul-process__steps {
+	display: grid;
+	gap: 0;
+}
+
+.it-mogul-process__step {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: var(--wp--preset--spacing--large);
+	padding-block: var(--wp--preset--spacing--large);
+	border-top: 1px solid var(--wp--preset--color--neutral-dark);
+}
+
+.it-mogul-process__step:last-child {
+	border-bottom: 1px solid var(--wp--preset--color--neutral-dark);
+}
+
+.it-mogul-process__num {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	color: var(--wp--preset--color--accent-light);
+}
+
+.it-mogul-process__body h3 {
+	margin: 0 0 var(--wp--preset--spacing--xs);
+}
+
+.it-mogul-process__body p {
+	margin: 0;
+	color: var(--wp--preset--color--neutral);
+}
+
+/* ---------------------------------------------------------------------------
+ * Homepage — Proof
+ * ------------------------------------------------------------------------- */
+
+.it-mogul-proof__inner {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+}
+
+.it-mogul-proof__inner > h2 {
+	margin-block: 0 var(--wp--preset--spacing--small);
+}
+
+.it-mogul-proof__note {
+	margin: 0 0 var(--wp--preset--spacing--xl);
+	color: var(--wp--preset--color--neutral-dark);
+}
+
+.it-mogul-proof__grid {
+	gap: var(--wp--preset--spacing--large);
+}
+
+.it-mogul-proof__grid .it-mogul-card blockquote {
+	margin: 0;
+}
+
+.it-mogul-proof__attribution {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+	color: var(--wp--preset--color--neutral-dark);
+}
+
+/* ---------------------------------------------------------------------------
+ * Homepage — FAQ
+ * ------------------------------------------------------------------------- */
+
+.it-mogul-faq__inner {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+}
+
+.it-mogul-faq__head {
+	margin-bottom: var(--wp--preset--spacing--xl);
+}
+
+.it-mogul-faq__head h2 {
+	margin-block: 0;
+}
+
+.it-mogul-faq__list {
+	display: grid;
+	gap: var(--wp--preset--spacing--xs);
+}
+
+.it-mogul-faq__list .wp-block-details {
+	border: 1px solid var(--wp--preset--color--neutral);
+	border-radius: var(--wp--custom--radius--small);
+	background: var(--wp--preset--color--background);
+	padding: var(--wp--preset--spacing--small)
+		var(--wp--preset--spacing--medium);
+}
+
+.it-mogul-faq__list .wp-block-details summary {
+	cursor: pointer;
+	font-weight: 600;
+	font-size: var(--wp--preset--font-size--body);
+	padding-block: var(--wp--preset--spacing--xs);
+}
+
+.it-mogul-faq__list .wp-block-details[open] summary {
+	margin-bottom: var(--wp--preset--spacing--xs);
+}
+
+.it-mogul-faq__list .wp-block-details p {
+	color: var(--wp--preset--color--neutral-dark);
+}
+
+/* ---------------------------------------------------------------------------
+ * Homepage — Final CTA
+ * ------------------------------------------------------------------------- */
+
+.it-mogul-final-cta__inner {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+	text-align: center;
+}
+
+.it-mogul-final-cta__title {
+	max-width: 18ch;
+	margin-inline: auto;
+	margin-block: 0 var(--wp--preset--spacing--medium);
+}
+
+.it-mogul-final-cta__lede {
+	max-width: 52ch;
+	margin-inline: auto;
+	margin-bottom: var(--wp--preset--spacing--xl);
+}
+
+.it-mogul-final-cta__actions {
+	margin: 0;
+	justify-content: center;
+}
+
+/* On the accent section, make the outline button readable. */
+.it-mogul-section--accent
+	.wp-block-button.is-style-outline
+	.wp-block-button__link {
+	color: var(--wp--preset--color--background);
+	border-color: var(--wp--preset--color--background);
+}
+
+.it-mogul-section--accent
+	.wp-block-button.is-style-outline
+	.wp-block-button__link:hover {
+	background: var(--wp--preset--color--accent-dark);
+	border-color: var(--wp--preset--color--accent-dark);
+	color: var(--wp--preset--color--background);
+}
+
+/* ---------------------------------------------------------------------------
+ * Homepage — Responsive refinements
+ * ------------------------------------------------------------------------- */
+
+@media (max-width: 781px) {
+	.it-mogul-service {
+		grid-template-columns: 1fr;
+		gap: var(--wp--preset--spacing--small);
+	}
+
+	.it-mogul-service__link {
+		grid-column: 1;
+	}
+
+	.it-mogul-problems__grid,
+	.it-mogul-why__grid,
+	.it-mogul-founder__grid {
+		gap: var(--wp--preset--spacing--large);
+	}
+}

@@ -263,3 +263,151 @@ main
 4. Add the namespace mapping to `composer.json` `autoload.psr-4`.
 5. Add tests under `tests/`.
 6. Run `bin/docker/composer dump-autoload` after changing autoload.
+
+## 9. The IT Mogul Website
+
+This repository is currently being used to build the official website for The IT Mogul.
+
+The website is not merely a technical demonstration. It is a commercial agency website whose primary purpose is to generate qualified enquiries and establish trust with potential clients.
+
+### Business
+
+The IT Mogul provides:
+
+- Website development
+- E-commerce development
+- WordPress development and troubleshooting
+- SEO
+- Custom software development
+- Business automation and integrations
+- Website maintenance and support
+
+### Target markets
+
+The website should be capable of attracting clients from:
+
+- Zambia
+- South Africa
+- Other African markets
+- United States
+- United Kingdom
+- Australia
+- Canada
+- Dubai
+
+Do not make the website feel like a cheap or generic local web-design business.
+
+The visual design, copy, UX and overall presentation should communicate that The IT Mogul is a technically capable software and web development company that can work with both local and international businesses.
+
+### Website priorities
+
+Prioritize, in order:
+
+1. Clear positioning
+2. Trust and credibility
+3. Clear explanation of services
+4. Lead generation
+5. Strong calls to action
+6. Professional visual presentation
+7. SEO
+8. Performance and accessibility
+
+Do not add sections, features or pages simply because they are common on agency websites. Every major element should have a purpose.
+
+### Design references
+
+The user may provide:
+
+- Website URLs
+- Screenshots
+- Images
+- Mood boards
+- Design examples
+
+These are references for design direction, layout, hierarchy, spacing, typography, interaction patterns and UX.
+
+Do not copy another website's branding, text, images, illustrations, code or proprietary assets.
+
+Extract the underlying design principles and create an original implementation appropriate for The IT Mogul.
+
+The detailed visual direction is defined in:
+
+`docs/design.md`
+
+### Content and copy
+
+The website copy should be:
+
+- Clear
+- Direct
+- Professional
+- Confident
+- Human
+- Specific
+- Focused on customer problems and outcomes
+
+Avoid generic AI-generated agency language and meaningless marketing claims.
+
+Do not repeatedly use phrases such as:
+
+- "world-class"
+- "cutting-edge"
+- "revolutionary"
+- "unparalleled"
+- "next-generation"
+
+unless there is a specific reason to do so.
+
+The detailed brand and messaging direction is defined in:
+
+`docs/brand.md`
+
+### Conversion
+
+The website should make it obvious what a potential client should do next.
+
+Use appropriate calls to action such as:
+
+- Start a project
+- Request a quote
+- Get a website audit
+- Tell us what you need
+- Contact The IT Mogul
+
+Do not overwhelm visitors with competing calls to action.
+
+### Implementation
+
+Use the existing FSE/Gutenberg architecture.
+
+Prefer:
+
+- Block patterns
+- Reusable components
+- Existing blocks
+- theme.json
+- Custom Gutenberg blocks where genuinely necessary
+
+Do not create dozens of custom blocks simply to reproduce ordinary layouts that can be implemented with standard Gutenberg blocks or patterns.
+
+Before creating custom functionality, determine whether the existing WordPress/FSE architecture can solve the problem cleanly.
+
+### Agent behavior
+
+When implementing the website, work through the site systematically rather than modifying random sections independently.
+
+For significant changes:
+
+1. Inspect the existing implementation.
+2. Compare it with the requirements and design reference.
+3. Implement the change.
+4. Build required assets.
+5. Test the implementation.
+6. Check desktop, tablet and mobile layouts.
+7. Check accessibility and semantic HTML.
+8. Fix problems discovered during testing.
+9. Continue to the next logical task.
+
+Do not stop after producing a visually acceptable first draft if obvious technical, responsive or accessibility problems remain.
+
+The agent should make reasonable design and implementation decisions autonomously when the requirements are sufficiently clear.

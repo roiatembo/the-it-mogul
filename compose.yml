@@ -36,7 +36,7 @@ services:
             - ".:/var/www/html"
         extra_hosts:
             - host.docker.internal:host-gateway
-            - "${LOOPBACK_HOST_NAME}:192.168.35.10" # IP should match the IP set for nginx below
+            - "${LOOPBACK_HOST_NAME}:192.168.36.10" # IP should match the IP set for nginx below
         healthcheck:
             test: ["CMD", "php", "-v"]
             interval: 10s

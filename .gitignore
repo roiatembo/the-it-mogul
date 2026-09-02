@@ -31,6 +31,7 @@ auth.json
 !/wp-content/plugins/index.php
 /wp-content/themes/*
 !/wp-content/themes/index.php
+!/wp-content/themes/it-mogul/
 
 # Keep the mu-plugins directory itself but not composer-installed mu-plugins
 !/wp-content/mu-plugins/index.php

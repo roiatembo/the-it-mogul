@@ -1,0 +1,31 @@
+{
+    "name": "it-mogul-theme",
+    "version": "1.0.0",
+    "description": "The IT Mogul — minimal Full Site Editing theme.",
+    "scripts": {
+        "build": "wp-scripts build",
+        "format": "wp-scripts format",
+        "lint": "npm run lint:css && npm run lint:js",
+        "lint:fix": "npm run lint:css:fix && npm run lint:js:fix",
+        "lint:css": "wp-scripts lint-style",
+        "lint:css:fix": "wp-scripts lint-style --fix",
+        "lint:js": "wp-scripts lint-js",
+        "lint:js:fix": "wp-scripts lint-js --fix",
+        "packages-update": "wp-scripts packages-update",
+        "start": "wp-scripts start",
+        "test": "npm run test:unit",
+        "test:unit": "wp-scripts test-unit-js",
+        "test:unit:watch": "wp-scripts test-unit-js --watch"
+    },
+    "author": "The IT Mogul",
+    "license": "GPL-2.0-or-later",
+    "devDependencies": {
+        "@wordpress/block-editor": "^13.0.7",
+        "@wordpress/blocks": "^13.0.3",
+        "@wordpress/dom-ready": "^4.0.1",
+        "@wordpress/editor": "^14.0.8",
+        "@wordpress/icons": "^10.0.2",
+        "@wordpress/scripts": "^28.0.2",
+        "react": "^18.2.0"
+    }
+}

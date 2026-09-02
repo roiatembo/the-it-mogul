@@ -1,0 +1,16 @@
+/**
+ * Callout block styles.
+ */
+.it-mogul-callout {
+	border-left: 4px solid var(--wp--preset--color--accent);
+	padding: var(--wp--preset--spacing--medium);
+	background: var(--wp--preset--color--neutral-light);
+
+	&__title {
+		margin-top: 0;
+	}
+
+	&__content {
+		margin-top: var(--wp--preset--spacing--small);
+	}
+}

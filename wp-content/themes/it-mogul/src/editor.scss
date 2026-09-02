@@ -1,0 +1,114 @@
+/**
+ * The IT Mogul — editor styles.
+ *
+ * Loaded only in the block editor. Brings the shared design-system base into
+ * the editor so blocks preview consistently, plus editor-only helpers.
+ */
+
+/* Reuse the shared base (typography, links, focus, utilities). */
+@use "./style.scss";
+
+/* Give the editor canvas a comfortable, neutral backdrop. */
+.editor-styles-wrapper {
+	background: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--foreground);
+}
+
+/* Make design-system section/card classes visible while editing. */
+.editor-styles-wrapper .it-mogul-section {
+	padding-block: var(--wp--custom--spacing--section);
+	padding-inline: var(--wp--custom--layout--gutter);
+}
+
+.editor-styles-wrapper .it-mogul-card {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--medium);
+	padding: var(--wp--preset--spacing--large);
+	background: var(--wp--preset--color--background);
+	border: 1px solid var(--wp--preset--color--neutral);
+	border-radius: var(--wp--custom--radius--medium);
+}
+
+/* Homepage sections preview consistently in the editor. */
+.editor-styles-wrapper .it-mogul-hero {
+	padding-block: clamp(4rem, 10vw, 8rem) var(--wp--custom--spacing--section);
+}
+
+.editor-styles-wrapper .it-mogul-hero__title {
+	max-width: 16ch;
+	font-size: var(--wp--preset--font-size--display);
+	line-height: 1.02;
+	letter-spacing: -0.03em;
+}
+
+.editor-styles-wrapper .it-mogul-credibility {
+	padding-block: var(--wp--custom--spacing--section-tight);
+	border-block: 1px solid var(--wp--preset--color--neutral);
+	background: var(--wp--preset--color--neutral-light);
+}
+
+.editor-styles-wrapper .it-mogul-problems__items,
+.editor-styles-wrapper .it-mogul-why__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.editor-styles-wrapper .it-mogul-problems__items li,
+.editor-styles-wrapper .it-mogul-why__list li {
+	padding-block: var(--wp--preset--spacing--small);
+	border-bottom: 1px solid var(--wp--preset--color--neutral);
+}
+
+.editor-styles-wrapper .it-mogul-service,
+.editor-styles-wrapper .it-mogul-process__step {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: var(--wp--preset--spacing--large);
+	padding-block: var(--wp--preset--spacing--large);
+	border-top: 1px solid var(--wp--preset--color--neutral-dark);
+}
+
+.editor-styles-wrapper .it-mogul-service {
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+}
+
+.editor-styles-wrapper .it-mogul-service__index,
+.editor-styles-wrapper .it-mogul-process__num {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	color: var(--wp--preset--color--accent-light);
+}
+
+.editor-styles-wrapper .it-mogul-work__preview,
+.editor-styles-wrapper .it-mogul-founder__photo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--wp--preset--color--neutral);
+	border-radius: var(--wp--custom--radius--medium);
+	background: var(--wp--preset--color--neutral-light);
+}
+
+.editor-styles-wrapper .it-mogul-work__preview {
+	aspect-ratio: 16 / 10;
+}
+
+.editor-styles-wrapper .it-mogul-founder__photo {
+	aspect-ratio: 4 / 5;
+}
+
+.editor-styles-wrapper .it-mogul-faq__list .wp-block-details {
+	border: 1px solid var(--wp--preset--color--neutral);
+	border-radius: var(--wp--custom--radius--small);
+	padding: var(--wp--preset--spacing--small)
+		var(--wp--preset--spacing--medium);
+}
+
+.editor-styles-wrapper .it-mogul-final-cta__inner {
+	text-align: center;
+}

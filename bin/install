@@ -63,7 +63,7 @@ fi
 
 if [[ "$(docker network ls | grep ${DOCKER_NETWORK_NAME})" == "" ]] ; then
     echo 'Setting up docker network...';
-    docker network create --subnet=192.168.35.0/24 $DOCKER_NETWORK_NAME;
+    docker network create --subnet=192.168.36.0/24 $DOCKER_NETWORK_NAME;
 fi
 
 echo 'Stopping any running containers...';

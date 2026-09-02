@@ -1,0 +1,25 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "it-mogul/callout",
+    "version": "1.0.0",
+    "title": "Callout",
+    "category": "text",
+    "icon": "megaphone",
+    "description": "A callout box with a title and content area.",
+    "keywords": ["callout", "notice", "highlight"],
+    "supports": {
+        "html": false,
+        "align": true
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "textdomain": "it-mogul",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "style": "file:./style-index.css"
+}
